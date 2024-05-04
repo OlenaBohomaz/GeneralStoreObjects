@@ -23,11 +23,35 @@ public class OnboardingTest {
         } else {
             System.out.println("ERROR!!! bucket is not displayed");
         }
-wait.until(ExpectedConditions.visibilityOf(onboardingPage.getTitle()));
+    wait.until(ExpectedConditions.visibilityOf(onboardingPage.getTitle()));
         if (onboardingPage.isTitleDisplayed()){
             System.out.println("title is present");
         } else {
             System.out.println("ERROR!!! title is not displayed");
         }
+
+        String clickableAttribute = onboardingPage.getTitle().getAttribute("clickable");
+        if ("false".equals(clickableAttribute)) {
+            System.out.println("Element is not clickable.");
+        } else {
+            System.out.println("TEST FAILED! Element is clickable!!!");
+        }
+        if(onboardingPage.isTitleEnabled()){
+            System.out.println("Title is enabled");
+        } else {
+            System.out.println("ERROR!!! Title is not enabled");
+        }
+
+        if (onboardingPage.isSelectCountryTextDisplayed()){
+            System.out.println("SelectCountryText is present");
+        } else {
+            System.out.println("ERROR!!! SelectCountryText is not displayed");
+        }
+        if (onboardingPage.isSelectCountryTextEnabled()){
+            System.out.println("SelectCountryText is enabled");
+        } else {
+            System.out.println("ERROR!!! SelectCountryText is not enabled");
+        }
+        if (onboardingPage.se)
     }
 }
