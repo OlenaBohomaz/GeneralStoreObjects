@@ -57,7 +57,18 @@ public class OnboardingPage {
     public WebElement getTitle(){
         return title;
 }
-    public boolean isSelectCountryTextDisplayed(){return selectCountryText.isDisplayed();}
-    public boolean isSelectCountryTextEnabled(){return selectCountryText.isEnabled();}
-    public
+    public boolean isSCountryDisplayed(){return country.isDisplayed();}
+    public boolean isCountryTextEnabled(){return country.isEnabled();}
+    public String getCountryTextAttribute(){return country.getAttribute("text");}
+    public boolean isInputNameDisplayed(){return inputName.isDisplayed();}
+    public boolean isInputNameEnabled(){return inputName.isEnabled();}
+
+    public void inputClick() {inputName.click();}
+    public void enterName(String name) {
+        inputName.sendKeys(name);
+    }
+
+    public void hideKeyboard(){
+        driver.hideKeyboard();
+    };
 }

@@ -8,8 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileReader;
 import java.net.URL;
 import java.time.Duration;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class OnboardingTest {
     public static void main(String[] args) throws Exception {
@@ -18,13 +21,15 @@ public class OnboardingTest {
         OnboardingPage onboardingPage = new OnboardingPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        if (onboardingPage.isBucketDisplayed()){
+        String name = readNameFromJsonFile();
+
+        if (onboardingPage.isBucketDisplayed()) {
             System.out.println("bucket is present");
         } else {
             System.out.println("ERROR!!! bucket is not displayed");
         }
-    wait.until(ExpectedConditions.visibilityOf(onboardingPage.getTitle()));
-        if (onboardingPage.isTitleDisplayed()){
+        wait.until(ExpectedConditions.visibilityOf(onboardingPage.getTitle()));
+        if (onboardingPage.isTitleDisplayed()) {
             System.out.println("title is present");
         } else {
             System.out.println("ERROR!!! title is not displayed");
@@ -36,22 +41,55 @@ public class OnboardingTest {
         } else {
             System.out.println("TEST FAILED! Element is clickable!!!");
         }
-        if(onboardingPage.isTitleEnabled()){
+        if (onboardingPage.isTitleEnabled()) {
             System.out.println("Title is enabled");
         } else {
             System.out.println("ERROR!!! Title is not enabled");
         }
 
-        if (onboardingPage.isSelectCountryTextDisplayed()){
+        if (onboardingPage.isSCountryDisplayed()) {
             System.out.println("SelectCountryText is present");
         } else {
             System.out.println("ERROR!!! SelectCountryText is not displayed");
         }
-        if (onboardingPage.isSelectCountryTextEnabled()){
-            System.out.println("SelectCountryText is enabled");
+        if (onboardingPage.isCountryTextEnabled()) {
+            System.out.println("CountryText is enabled");
         } else {
-            System.out.println("ERROR!!! SelectCountryText is not enabled");
+            System.out.println("ERROR!!! CountryText is not enabled");
         }
-        if (onboardingPage.se)
-    }
+        if (onboardingPage.getCountryTextAttribute().equals("Afghanistan")) {
+            System.out.println("CountryText is correct");
+        } else {
+            System.out.println("ERROR!!! CountryText is not correct");
+        }
+
+        if (onboardingPage.isInputNameDisplayed()) {
+            System.out.println("InputName is displayed ");
+        } else {
+            System.out.println("ERROR!!!InputName is not displayed");
+        }
+        if (onboardingPage.isInputNameEnabled()) {
+            System.out.println("InputName is enabled ");
+        } else {
+            System.out.println("ERROR!!!InputName is not enabled");
+        }
+        onboardingPage.inputClick();
+        onboardingPage.enterName(name);
+        System.out.println("Name read from JSON file: " + name);
+    }  private static String readNameFromJsonFile () {
+            JSONParser parser = new JSONParser();
+            String name = null;
+            try {
+                String filePath = "src/test/java/generalStorePageObject/name.json";
+                Object obj = parser.parse(new FileReader(filePath));
+                JSONObject jsonObject = (JSONObject) obj;
+                name = (String) jsonObject.get("name");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return name;
+        }
+
+
 }
+
