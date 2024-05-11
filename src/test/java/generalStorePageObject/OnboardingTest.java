@@ -76,6 +76,26 @@ public class OnboardingTest {
         onboardingPage.inputClick();
         onboardingPage.enterName(name);
         System.out.println("Name read from JSON file: " + name);
+        driver.hideKeyboard();
+
+        if (onboardingPage.isFFemailDisplayed()){
+            System.out.println("femailRadio is displayed");
+        } else {
+            System.out.println("ERROR!!! femailRadio is not displayed");
+        }
+
+        if(onboardingPage.isFemailUncheked().equals("false")){
+            System.out.println("femailRadio is unchecked");
+        } else {
+            System.out.println("ERROR!!! femailRadio is not unchecked");
+        }
+
+
+        if (onboardingPage.isSubmitButtoneEnabled()){
+            System.out.println("button is enabled");
+        } else {
+            System.out.println("ERROR! Button is enabled ");
+        }
     }  private static String readNameFromJsonFile () {
             JSONParser parser = new JSONParser();
             String name = null;
@@ -89,6 +109,9 @@ public class OnboardingTest {
             }
             return name;
         }
+
+
+
 
 
 }
