@@ -35,11 +35,11 @@ public class OnboardingTest {
             System.out.println("ERROR!!! title is not displayed");
         }
 
-        String clickableAttribute = onboardingPage.getTitle().getAttribute("clickable");
-        if ("false".equals(clickableAttribute)) {
-            System.out.println("Element is not clickable.");
+
+        if (onboardingPage.titleClickableAttribute().equals("false")) {
+            System.out.println("Title is not clickable.");
         } else {
-            System.out.println("TEST FAILED! Element is clickable!!!");
+            System.out.println("TEST FAILED! Title is clickable!!!");
         }
         if (onboardingPage.isTitleEnabled()) {
             System.out.println("Title is enabled");
@@ -90,12 +90,19 @@ public class OnboardingTest {
             System.out.println("ERROR!!! femailRadio is not unchecked");
         }
 
+        onboardingPage.femailClick();
+        if(onboardingPage.isFemailUncheked().equals("true")){
+            System.out.println("femailRadio is checked");
+        } else {
+            System.out.println("ERROR!!! femailRadio is not checked");
+        }
 
         if (onboardingPage.isSubmitButtoneEnabled()){
             System.out.println("button is enabled");
         } else {
             System.out.println("ERROR! Button is enabled ");
         }
+        onboardingPage.buttonClick();
     }  private static String readNameFromJsonFile () {
             JSONParser parser = new JSONParser();
             String name = null;

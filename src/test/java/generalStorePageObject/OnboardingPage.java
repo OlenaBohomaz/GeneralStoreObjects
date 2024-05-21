@@ -31,6 +31,9 @@ public class OnboardingPage {
     @AndroidFindBy(xpath="//android.widget.ImageView")
     private WebElement  picture;
 
+
+
+
     @AndroidFindBy(xpath="//android.widget.Spinner[@resource-id=\"com.androidsample.generalstore:id/spinnerCountry\"]")
     private WebElement  spinnerCountry;
 
@@ -46,11 +49,13 @@ public class OnboardingPage {
     @AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
     private WebElement  button;
 
-      public  OnboardingPage(AppiumDriver driver){
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    public  OnboardingPage(AppiumDriver driver){
+   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
     public boolean isTitleDisplayed(){return title.isDisplayed();}
     public boolean isTitleEnabled(){return title.isEnabled();}
+    public String titleClickableAttribute(){return title.getAttribute("clickable");}
     public boolean isBucketDisplayed(){
         return bucket.isDisplayed();
     }
@@ -73,5 +78,7 @@ public class OnboardingPage {
     public String isMailChecked(){return maleRadio.getAttribute("checked");}
 public boolean isFFemailDisplayed(){return femaleRadio.isDisplayed();}
     public String isFemailUncheked(){return femaleRadio.getAttribute("checked");}
+public void buttonClick() {button.click();}
+public void femailClick(){femaleRadio.click();}
 
 }
