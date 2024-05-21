@@ -25,7 +25,7 @@ public class OnboardingPage {
     @AndroidFindBy(xpath="//android.widget.TextView[@text=\"Gender\"]")
     private WebElement  genderText;
 
-    @AndroidFindBy(id="android:id/text1")
+    @AndroidFindBy(id = "android:id/text1")
     private WebElement  country;
 
     @AndroidFindBy(xpath="//android.widget.ImageView")
@@ -66,6 +66,9 @@ public class OnboardingPage {
     public boolean isSCountryDisplayed(){return country.isDisplayed();}
     public boolean isCountryTextEnabled(){return country.isEnabled();}
     public String getCountryTextAttribute(){return country.getAttribute("text");}
+public String getCountryText() {
+        return country.getText();
+}
     public boolean isInputNameDisplayed(){return inputName.isDisplayed();}
     public boolean isInputNameEnabled(){return inputName.isEnabled();}
 

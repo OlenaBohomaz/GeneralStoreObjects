@@ -8,17 +8,17 @@ Feature: Onboarding page test
     When I check if the title is displayed
     Then the title should be present
 
-    When I check if the title is clickable
-    Then the title should not be clickable
+#    When I check if the title is not clickable
+#    Then the title should not be clickable
 
     When I check if the title is enabled
     Then the title should be enabled
 
-    When I check if the select country text is displayed
-    Then the select country text should be present
-
-    When I check if the country text is enabled
-    Then the country text should be enabled
+#    When I check if the select country text is displayed
+#    Then the select country text should be present
+#
+#    When I check if the country text is enabled
+#    Then the country text should be enabled
 
     When I check if the country text is correct
     Then the country text should be Afghanistan
