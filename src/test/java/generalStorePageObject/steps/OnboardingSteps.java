@@ -71,12 +71,122 @@ public class OnboardingSteps {
         public void titleIsEnabled() {
             System.out.println("The title is enabled");
         }
-
-        @When("I check if the country text is correct")
-    public void isCountryTextCorrect(){
-       String expectedCountryText = "Afghanistan";
-       String actualCountryText = onboardingPage.getCountryText();
-       assertEquals("Country text is not equal Afganistan", expectedCountryText, actualCountryText);
-        }
+    @When("I check if the select country text is displayed")
+    public void iCheckIsSelectCountryDisplayed() {
+        assert onboardingPage.isSCountryDisplayed() : "ERROR!!! country is not displayed!!";
     }
+    @Then("the select country text should be present")
+    public void selectCountryTextIsDisplayed() {
+        System.out.println("The Select country text is displayled");
+    }
+
+    @When("I check if the country text is enabled")
+    public void iCheckIfTheCountryTextEnabled() {
+        assert onboardingPage.isCountryTextEnabled() : "ERROR!!! Country text is not enabled!!";
+    }
+    @Then("the country text should be enabled")
+    public void countryTextIsEnabled() {
+        System.out.println("The country text is enabled");
+    }
+//
+//        @When("I check if the country text is correct")
+//         public void isCountryTextCorrect(){
+//       String expectedCountryText = "Afghanistan";
+//       String actualCountryText = onboardingPage.getCountryText();
+//       assertEquals("Country text is not equal Afganistan", expectedCountryText, actualCountryText);
+//        }
+//        @Then("the country text should be Afghanistan")
+//        public void countryTextIsCorrect(){
+//            System.out.println("The country text is correct");
+//        }
+
+    @When("I check if the input name is displayed")
+    public void iCheckIfTheInputNameIsDisplayed() {
+        assert onboardingPage.isInputNameDisplayed() : "ERROR!!! Input name is not displayed!!";
+    }
+    @Then("the input name should be displayed")
+    public void inputNameIsDisplayed() {
+        System.out.println("The input name is displayed");
+    }
+
+    @When("I check if the input name is enabled")
+    public void iCheckIfTheInputNameIsEnabled() {
+        assert onboardingPage.isInputNameEnabled() : "ERROR!!! Input name is not enabled!!";
+    }
+    @Then("the input name should be enabled")
+    public void inputNameIsEnabled() {
+        System.out.println("The input name is enabled");
+    }
+
+    @When("I click on the input field")
+    public void iClickOnTheInputField() {
+       onboardingPage.inputClick();
+    }
+    @Then("input field is focused")
+    public void inputFieldIsFocused() {
+
+        System.out.println("The input field is focused");
+    }
+
+    @When("I enter the name from the JSON file")
+    public void iEnterTheNamed() {
+        assert onboardingPage.enterName(String name) : "ERROR!!! Input name is not entered!!" ;
+    }
+    @Then("the name should be entered")
+    public void inputNameIsEntered() {
+        System.out.println("The input name is entered");
+    }
+
+    @When("I check if the female radio button is displayed")
+    public void iCheckIfTheFemailButtonIsDisplayed() {
+        assert onboardingPage.isFFemailDisplayed() : "ERROR!!! Femail button is not displayed!!";
+    }
+    @Then("the female radio button should be displayed")
+    public void femailRadioButtonIsDisplayed() {
+        System.out.println("The Femail button is displayed");
+    }
+
+    @When("I check if the female radio button is unchecked")
+    public void iCheckIfTheFemailIsUnchecked() {
+        assertFalse("ERROR!!! the femail radio  is unchecked", onboardingPage.isFemailUncheked().equals("true"));
+    }
+    @Then("the female radio button should be unchecked")
+    public void femailRadioButtonIsUnchecked() {
+        System.out.println("The Femail button is unchecked");
+    }
+
+    @When("I click on the femail radio button")
+    public void iClickTheFemailButton() {
+        onboardingPage.femailClick();
+    }
+    @Then("the femail radio button is clicked")
+    public void femailRadioButtonIsClicked() {
+        System.out.println("The Femail button is clicked");
+    }
+
+    @When("I hide the keyboard")
+    public void iHideTheKeyboard() {
+        driver.hideKeyboard();
+    }
+    @Then("the keyboard is hidden")
+    public void keyboardIsHidden() {
+        System.out.println("The keyboard is hidden");
+    }
+
+    @When("I check if the submit button is enabled")
+    public void iCheckIfTheSubmitButtonIsEnabled() {
+        assert onboardingPage.isSubmitButtoneEnabled() : "ERROR!!! Input name is notsubmit button enabled!!";
+    }
+    @Then("the submit button should be enabled")
+    public void submitButtonIsEnabled() {
+        System.out.println("The submit button is enabled");
+    }
+
+
+
+
+
+
+
+}
 

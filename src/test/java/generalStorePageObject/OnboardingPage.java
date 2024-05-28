@@ -84,4 +84,5 @@ public boolean isFFemailDisplayed(){return femaleRadio.isDisplayed();}
 public void buttonClick() {button.click();}
 public void femailClick(){femaleRadio.click();}
 
+
 }
