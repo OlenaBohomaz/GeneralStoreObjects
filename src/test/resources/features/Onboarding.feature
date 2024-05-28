@@ -20,8 +20,8 @@ Feature: Onboarding page test
     When I check if the country text is enabled
     Then the country text should be enabled
 
-#    When I check if the country text is correct
-#    Then the country text should be Afghanistan
+    When I check if the country text is correct
+    Then the country text should be Afghanistan
 
     When I check if the input name is displayed
     Then the input name should be displayed
@@ -32,7 +32,7 @@ Feature: Onboarding page test
     When I click on the input field
     Then input field is focused
 
-    When I enter the name from the JSON file
+    When I enter the name "<name>"
     Then the name should be entered
 
     When I check if the female radio button is displayed
@@ -51,4 +51,16 @@ Feature: Onboarding page test
     Then the submit button should be enabled
 
     When I click on the Submit button
-    Then I see the second title
+    Then the submit button is clicked
+
+#    Examples:
+#      | name     |
+#      | John Doe |
+#      | Jane Doe |
+#      | Alice    |
+
+    Examples:
+      | name     | country      |
+      | John Doe | Afghanistan  |
+  #    | Jane Doe | Brazil       |
+  #    | Alice    | Canada       |

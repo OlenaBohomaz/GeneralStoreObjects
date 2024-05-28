@@ -73,9 +73,12 @@ public String getCountryText() {
     public boolean isInputNameEnabled(){return inputName.isEnabled();}
 
     public void inputClick() {inputName.click();}
-    public void enterName(String name) {
-        inputName.sendKeys(name);
-    }
+  //  public void enterName(String name) {
+   //     inputName.sendKeys(name);
+  //  }
+  public void enterName(String name) {
+      inputName.sendKeys(name);
+  }
 
     public boolean isSubmitButtoneEnabled(){return button.isEnabled();}
     public String isMailChecked(){return maleRadio.getAttribute("checked");}

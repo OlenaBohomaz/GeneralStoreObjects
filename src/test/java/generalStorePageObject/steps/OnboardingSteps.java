@@ -88,17 +88,17 @@ public class OnboardingSteps {
     public void countryTextIsEnabled() {
         System.out.println("The country text is enabled");
     }
-//
-//        @When("I check if the country text is correct")
-//         public void isCountryTextCorrect(){
-//       String expectedCountryText = "Afghanistan";
-//       String actualCountryText = onboardingPage.getCountryText();
-//       assertEquals("Country text is not equal Afganistan", expectedCountryText, actualCountryText);
-//        }
-//        @Then("the country text should be Afghanistan")
-//        public void countryTextIsCorrect(){
-//            System.out.println("The country text is correct");
-//        }
+
+        @When("I check if the country text is correct")
+         public void isCountryTextCorrect(){
+       String expectedCountryText = "Afghanistan";
+       String actualCountryText = onboardingPage.getCountryText();
+       assertEquals("Country text is not equal Afganistan", expectedCountryText, actualCountryText);
+        }
+        @Then("the country text should be Afghanistan")
+        public void countryTextIsCorrect(){
+            System.out.println("The country text is correct");
+        }
 
     @When("I check if the input name is displayed")
     public void iCheckIfTheInputNameIsDisplayed() {
@@ -128,9 +128,9 @@ public class OnboardingSteps {
         System.out.println("The input field is focused");
     }
 
-    @When("I enter the name from the JSON file")
-    public void iEnterTheNamed() {
-        assert onboardingPage.enterName(String name) : "ERROR!!! Input name is not entered!!" ;
+    @When("I enter the name {string}")
+    public void iEnterTheName(String name) {
+        onboardingPage.enterName(name);
     }
     @Then("the name should be entered")
     public void inputNameIsEntered() {
@@ -175,12 +175,22 @@ public class OnboardingSteps {
 
     @When("I check if the submit button is enabled")
     public void iCheckIfTheSubmitButtonIsEnabled() {
-        assert onboardingPage.isSubmitButtoneEnabled() : "ERROR!!! Input name is notsubmit button enabled!!";
+        assert onboardingPage.isSubmitButtoneEnabled() : "ERROR!!! submit button is not enabled!!";
     }
     @Then("the submit button should be enabled")
     public void submitButtonIsEnabled() {
         System.out.println("The submit button is enabled");
     }
+
+    @When("I click on the Submit button")
+    public void iClickTheSubmitButtond() {
+       onboardingPage.buttonClick();
+    }
+    @Then("the submit button is clicked")
+    public void submitButtonIsClicked() {
+        System.out.println("The submit button is clicked");
+    }
+
 
 
 
