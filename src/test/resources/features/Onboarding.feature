@@ -1,5 +1,6 @@
 Feature: Onboarding page test
-  Scenario: Verify elements on the onboarding page
+
+  Scenario Outline: Verify elements on the onboarding page
     Given I open the app
 
     When I check if the bucket is displayed
@@ -60,7 +61,7 @@ Feature: Onboarding page test
 #      | Alice    |
 
     Examples:
-      | name     | country      |
-      | John Doe | Afghanistan  |
+      | name     | country     |
+      | John Doe | Afghanistan |
   #    | Jane Doe | Brazil       |
   #    | Alice    | Canada       |
