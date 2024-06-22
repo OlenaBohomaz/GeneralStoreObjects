@@ -11,11 +11,13 @@ import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
+import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -34,6 +36,7 @@ public class OnboardingStepsTest {
             DesiredCapabilities capabilities = DesiredCapabilitiesConfig.getDesiredCapabilities();
             driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
             onboardingPage = new OnboardingPage(driver);
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             logger.info("App opened successfully");
         }
         catch (Exception e) {
@@ -77,7 +80,7 @@ public class OnboardingStepsTest {
     @Step("I check if the title is displayed")
     @When("I check if the title is displayed")
         public void iCheckTheTitleIsDisplayed() {
-        //  wait.until(ExpectedConditions.visibilityOf(onboardingPage.getTitle()));
+          wait.until(ExpectedConditions.visibilityOf(onboardingPage.getTitle()));
         Assert.assertTrue("ERROR!!! title is not displayed", onboardingPage.isTitleDisplayed());
 
     }

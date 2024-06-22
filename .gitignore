@@ -2,3 +2,4 @@
 target/
 allure-report/
 allure-results/
+.allure/allure-2.20.1/

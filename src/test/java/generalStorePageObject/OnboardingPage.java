@@ -13,7 +13,7 @@ public class OnboardingPage {
     @AndroidFindBy(id="com.androidsample.generalstore:id/splashscreen")
     private WebElement bucket;
 
-    @AndroidFindBy(id="com.androidsample.generalstore:id/toolbar_title")
+    @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.androidsample.generalstore:id/toolbar_title\"]")
     private WebElement title;
 
     @AndroidFindBy(xpath="//android.widget.TextView[@text=\"Select the country where you want to shop\"]")
